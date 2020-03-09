@@ -20,17 +20,15 @@ html {
     font-size: 16px;
     line-height: 1.5;  
     color: #5C6366;
-    padding: 48px 24px 24px;
     font-family: "droid-serif", Helvetica, arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 }
 
-body {
-    max-width: 42em;
-    margin: 0 auto;
+*{
+    box-sizing: inherit;
 }
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -163,6 +161,54 @@ a:focus {
 }
 
 /*
+    Components: Article
+*/
+
+.c-article__header,
+.c-article__body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.c-article__header {
+    padding: 24px 24px 0px;
+}
+
+.c-article__body {
+    padding: 0px 24px;
+}
+
+@media (min-width: 768px) {
+    .c-article__header {
+        padding: 48px 48px 24px;;
+    }
+    .c-article__author {
+        margin-bottom: 48px;
+    }
+    .c-article__body {
+        padding: 24px 48px;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-article__body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .c-article__author {
+        width: 25%;
+        padding-right: 24px;
+    }
+    .c-article__content {
+        width: 75%;
+    }
+}
+
+.c-article__date {
+    margin: 0;
+}
+
+/*
     Components: Author
 */
 
@@ -195,6 +241,37 @@ a:focus {
     line-height: 24px;
 }
 
+@media (min-width: 992px) {
+    .c-author {
+        display: block;
+    }
+    .c-author__image {
+        margin-bottom: 16px;
+    }
+}
+
+/*
+    Component: Block quote
+*/
+.c-quote {
+    font-size: 23px;
+    line-height: 32px;
+    font-style: italic;
+    padding: 24px;
+    color: #00B37D;
+    background-color: #F2FAF8;
+    margin-left: -24px;
+    margin-right: -24px;
+}
+
+/*
+    Untility Classes
+*/
+
+.u-max-width_sm {
+    max-width: 36em;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 
 @media (min-width: 576px) {}
@@ -202,9 +279,6 @@ a:focus {
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    html {
-        padding: 48px 48px 24px;
-    }
     h1 {
         font-size: 58px;
         line-height: 64px;
